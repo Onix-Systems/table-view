@@ -1,11 +1,27 @@
 .container{
     padding-top: 30px;
 }
+table{
+    border: 1px solid #bab8ba;
+}
 td,th{
     border-radius:0;
-    border-right: 1px solid #d0d0d0;
+    border-right: 1px solid #bab8ba;
 }
 td:last-child,th:last-child{
     border:none;
 }
 .header_cells{}
+/*-----------------color------------------*/
+.nav-dark{
+    background-color: #555555 !important;
+}
+.cell-green{
+    background-color: #12dc8e;
+}
+.cell-red{
+    background-color: #ee6446;
+}
+.cell-gray{
+    background-color: #cccccc;
+}

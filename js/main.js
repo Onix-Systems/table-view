@@ -36,6 +36,7 @@ $(function () {
 
         var th = document.createElement('th');
         th.innerHTML = 'Rows';
+        th.className = "cell-gray";
         table_head.append(th);
         
         table_data[table_name].forEach(function (d,i) {
@@ -49,7 +50,7 @@ $(function () {
                 for (col in row_data) break;
                 cols_names.push(col);
                 var td = document.createElement('td');
-                td.className = row_data.good == "True" ? "blue accent-2" : "red accent-2";
+                td.className = row_data.good == "True" ? "cell-green" : "cell-red";
                 td.style.cssText = 'width:'+col_width+'%';
                 td.innerHTML = row_data[col];
                 table_body.find('tr:last-child').append(td);
@@ -57,7 +58,7 @@ $(function () {
         });
 
         _.uniq(cols_names).forEach(function (d,i) {
-            table_head.append('<th class="header_cells">'+ d +'</th>');
+            table_head.append('<th class="header_cells cell-gray">'+ d +'</th>');
         });
     }
 });
