@@ -23,9 +23,13 @@ td,th {
     vertical-align: middle;
     background-color: #ffffff;
 }
-nav {
+.nav-container {
     height: 64px;
     line-height: 64px;
+}
+.nav-container > span{
+    color: #ffffff;
+    padding: 0 15px;
 }
 .header_cells{}
 .left {
@@ -77,26 +81,30 @@ nav {
     border: 6px solid transparent;
     border-top: 6px solid #ffffff;
 }
-.table-container {
+.tables-container {
     padding-top: 30px;
     margin: 0 auto;
     max-width: 1280px;
     width: 90%
 }
 
+.table-container{
+    margin-bottom: 20px;
+}
+
 @media only screen and (min-width: 601px) {
-    .table-container {
+    .tables-container {
         width:85%
     }
 }
 
 @media only screen and (min-width: 993px) {
-    .table-container {
+    .tables-container {
         width:70%;
     }
 }
 
-.table-container .row {
+.tables-container .row {
     margin-left: -0.75rem;
     margin-right: -0.75rem
 }
