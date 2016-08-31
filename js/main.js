@@ -1,5 +1,4 @@
 $(function () {
-    $(".dropdown-button").dropdown();
     var jqxhr = $.getJSON( "data.json", function(data) {
             if (data){
                 $("#dropdown1").empty();
@@ -61,4 +60,8 @@ $(function () {
             table_head.append('<th class="header_cells cell-gray">'+ d +'</th>');
         });
     }
+
+    $('.hide-on-med-and-down').click(function () {
+        $(this).children('li').children('.dropdown-content').toggle();
+    });
 });
