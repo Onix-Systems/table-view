@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "express": "*"
+    "express": "^4.8.0"
   },
   "engines": {
-    "node": "dev",
-    "npm": "dev"
+    "node": "0.10.x",
+    "npm": "1.3.x"
   }
 }
