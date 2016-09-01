@@ -1,0 +1,16 @@
+{
+  "name": "node-table",
+  "scripts": {
+    "start": "node node_modules/http-server/bin/http-server"
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    "heroku/nodejs"
+  ]
+}
