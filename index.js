@@ -1,7 +1,8 @@
-var http = require('https');
-var fs = require('fs');
+var http = require('http');
 
-var file = fs.createWriteStream("file.json");
-var request = http.get("https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5", function(response) {
-    response.pipe(file);
-});
+http.createServer(function (request, response) {
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end('Hello World\n');
+}).listen(80);
+
+console.log('Server started');
