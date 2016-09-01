@@ -4,7 +4,6 @@ $(function () {
             var titles = Object.keys(data);
             titles.forEach(function (title) {
                 data[title].forEach(function (chart) {
-                    console.log(chart);
                     var container = document.createElement('div');
                     var table = document.createElement('table');
                     table.appendChild(core.addTableHead(chart));
@@ -15,15 +14,6 @@ $(function () {
                     $('.tables-container').append(container);
                 })
             });
-            // var container = document.createElement('div');
-            // var tableKey = Object.keys(data);
-            // var table = document.createElement('table');
-            // table.appendChild(this.addTableHead(data[tableKey]));
-            // table.appendChild(this.addTableBody(data[tableKey]));
-            // container.className = "table-container";
-            // container.appendChild(this.addNavbar(tableKey));
-            // container.appendChild(table);
-            // $('.tables-container').append(container);
         },
         addNavbar: function (title, chartName) {
             var div = document.createElement('div');
@@ -56,16 +46,22 @@ $(function () {
         },
         addTableBody: function (data) {
             var tbody = document.createElement('tbody');
+            var colsCount = null;
             data.chartData.forEach(function (row) {
-                var rowElement = document.createElement('tr');
-                var col_width = 100/(row.data.length+1);
-                rowElement.appendChild(core.getTableCell(false, row.row, col_width));
-                row.data.forEach(function (cell) {
-                    for (col in cell) break;
-                    var tdStyle = cell.good == "True" ? "cell-green" : "cell-red";
-                    rowElement.appendChild(core.getTableCell(tdStyle, cell[col], col_width));
-                });
-                tbody.appendChild(rowElement);
+                if (!colsCount) {
+                    colsCount = row.data.length;
+                }
+                if (colsCount == row.data.length) {
+                    var rowElement = document.createElement('tr');
+                    var colWidth = 100/(row.data.length+1);
+                    rowElement.appendChild(core.getTableCell(false, row.row, colWidth));
+                    row.data.forEach(function (cell) {
+                        for (col in cell) break;
+                        var tdStyle = cell.good == "True" ? "cell-green" : "cell-red";
+                        rowElement.appendChild(core.getTableCell(tdStyle, cell[col], colWidth));
+                    });
+                    tbody.appendChild(rowElement);
+                }
             });
 
             return tbody;

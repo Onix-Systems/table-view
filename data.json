@@ -41,8 +41,7 @@
               "row" : "Row2",
               "data" : [
                 { "num1" : "Around 14", "good" : "False" },
-                { "num2" : "No", "good" : "False" },
-                { "num3" : "Around 13", "good" : "True"}
+                { "num2" : "No", "good" : "False" }
               ]
             }
           ]
@@ -89,8 +88,7 @@
               "row" : "Row2",
               "data" : [
                 { "num1" : "Around 14", "good" : "False" },
-                { "num2" : "No", "good" : "False" },
-                { "num3" : "Around 13", "good" : "True"}
+                { "num2" : "No", "good" : "False" }
               ]
             }
           ]
