@@ -1,9 +1,16 @@
 var express = require("express");
 var app = express();
+var request = require('request');
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-    response.send('Hello World!');
+    var answer = null;
+    request('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5', function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            answer = body;
+        }
+    });
+    response.send(answer);
 });
 
 var port = process.env.PORT || 5000;
