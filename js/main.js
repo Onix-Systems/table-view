@@ -1,27 +1,41 @@
 $(function () {
     var core = {
-        buildTable: function (data) {
-            var container = document.createElement('div');
-            var tableKey = Object.keys(data);
-            var table = document.createElement('table');
-            table.appendChild(this.addTableHead(data[tableKey]));
-            table.appendChild(this.addTableBody(data[tableKey]));
-            container.className = "table-container";
-            container.appendChild(this.addNavbar(tableKey));
-            container.appendChild(table);
-            $('.tables-container').append(container);
+        buildTables: function (data) {
+            var titles = Object.keys(data);
+            titles.forEach(function (title) {
+                data[title].forEach(function (chart) {
+                    console.log(chart);
+                    var container = document.createElement('div');
+                    var table = document.createElement('table');
+                    table.appendChild(core.addTableHead(chart));
+                    table.appendChild(core.addTableBody(chart));
+                    container.className = "table-container";
+                    container.appendChild(core.addNavbar(title, chart.chartName));
+                    container.appendChild(table);
+                    $('.tables-container').append(container);
+                })
+            });
+            // var container = document.createElement('div');
+            // var tableKey = Object.keys(data);
+            // var table = document.createElement('table');
+            // table.appendChild(this.addTableHead(data[tableKey]));
+            // table.appendChild(this.addTableBody(data[tableKey]));
+            // container.className = "table-container";
+            // container.appendChild(this.addNavbar(tableKey));
+            // container.appendChild(table);
+            // $('.tables-container').append(container);
         },
-        addNavbar: function (data) {
+        addNavbar: function (title, chartName) {
             var div = document.createElement('div');
             div.className = "nav-container nav-dark";
-            div.innerHTML = '<span>' + data[0] + '</span>';
+            div.innerHTML = '<span>' + title + ' - ' + chartName + '</span>';
             return div;
         },
         addTableHead: function (data) {
             var head = document.createElement('thead');
             var headRow = document.createElement('tr');
             var cells = [];
-            data.forEach(function (row) {
+            data.chartData.forEach(function (row) {
                 row.data.forEach(function (cell) {
                     for (col in cell) break;
                     cells.push(col);
@@ -42,7 +56,7 @@ $(function () {
         },
         addTableBody: function (data) {
             var tbody = document.createElement('tbody');
-            data.forEach(function (row) {
+            data.chartData.forEach(function (row) {
                 var rowElement = document.createElement('tr');
                 var col_width = 100/(row.data.length+1);
                 rowElement.appendChild(core.getTableCell(false, row.row, col_width));
@@ -67,13 +81,13 @@ $(function () {
         }
     };
     var jqxhr = $.getJSON( "data.json", function(data) {
-            if (data){
-                data.allData.forEach(function (d) {
-                    core.buildTable(d);
-                });
-            }
-        })
-        .fail(function(err) {
-            console.log( err );
-        });
+        if (data){
+            data.allData.forEach(function (d) {
+                core.buildTables(d);
+            });
+        }
+    })
+    .fail(function(err) {
+        console.log( err );
+    });
 });
