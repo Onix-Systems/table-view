@@ -7,10 +7,10 @@ app.get('/', function(request, response) {
     var answer = null;
     request('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5', function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            answer = body;
+            console.log(body);
         }
     });
-    response.send(answer);
+    response.send('<p>test</p>');
 });
 
 var port = process.env.PORT || 5000;
