@@ -1,16 +1,99 @@
 {
-  "name": "node-table",
-  "scripts": {
-    "start": "node node_modules/http-server/bin/http-server"
-  },
-  "env": {
-  },
-  "formation": {
-  },
-  "addons": [
-
-  ],
-  "buildpacks": [
-    "heroku/nodejs"
+  "titleList" : ["Title1", "Title2"],
+  "allData" : [
+    {
+      "Title1" : [
+        {
+          "chartName":"Chart1",
+          "chartData": [
+            {
+              "row" : "Row1",
+              "data" : [
+                { "num1" : "Yes", "good" : "True" },
+                { "num2" : "No", "good" : "False" },
+                { "num3" : "Around 13", "good" : "True"},
+                { "num4" : "Around 20", "good" : "False"}
+              ]
+            },
+            {
+              "row" : "Row2",
+              "data" : [
+                { "num1" : "Around 14", "good" : "False" },
+                { "num2" : "No", "good" : "False" },
+                { "num3" : "Yes", "good" : "False"},
+                { "num4" : "Around 20", "good" : "False"}
+              ]
+            }
+          ]
+        },
+        {
+          "chartName":"Chart2",
+          "chartData": [
+            {
+              "row" : "Row1",
+              "data" : [
+                { "num1" : "Yes", "good" : "True" },
+                { "num2" : "No", "good" : "False" },
+                { "num3" : "Around 13", "good" : "True"}
+              ]
+            },
+            {
+              "row" : "Row2",
+              "data" : [
+                { "num1" : "Around 14", "good" : "False" },
+                { "num2" : "No", "good" : "False" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Title2" : [
+        {
+          "chartName":"Chart1",
+          "chartData": [
+            {
+              "row" : "Row1",
+              "data" : [
+                { "num1" : "Yes", "good" : "True" },
+                { "num2" : "No", "good" : "False" },
+                { "num3" : "Around 13", "good" : "True"},
+                { "num4" : "Around 20", "good" : "False"}
+              ]
+            },
+            {
+              "row" : "Row2",
+              "data" : [
+                { "num1" : "Around 14", "good" : "False" },
+                { "num2" : "No", "good" : "False" },
+                { "num3" : "Yes", "good" : "False"},
+                { "num4" : "Around 20", "good" : "False"}
+              ]
+            }
+          ]
+        },
+        {
+          "chartName":"Chart2",
+          "chartData": [
+            {
+              "row" : "Row1",
+              "data" : [
+                { "num1" : "Yes", "good" : "True" },
+                { "num2" : "No", "good" : "False" },
+                { "num3" : "Around 13", "good" : "True"}
+              ]
+            },
+            {
+              "row" : "Row2",
+              "data" : [
+                { "num1" : "Around 14", "good" : "False" },
+                { "num2" : "No", "good" : "False" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
