@@ -2,7 +2,6 @@ var express = require("express");
 var app = express();
 var req = require('request');
 var data = require('./data.json');
-app.use(express.logger());
 
 app.get('/', function(request, response) {
     if (request.query.url) {
